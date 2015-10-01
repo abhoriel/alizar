@@ -1,0 +1,36 @@
+world representation
+
+requirements:
+	represent 3d dynamic world 
+	easy serialisation/deserialisation
+	allow for efficient reads and updates
+	compact enough to store large worlds
+	world must be represented, along with 
+		dynamic objects such as creatures + items, of which several can occupy the same space
+		areas of empty space can be designated as rooms
+	ideally easily expandible through 3rd party plugins
+
+entire world will be represented by a 3d array
+	array of:
+		typedef struct {
+			int tileType;
+			void *data;
+		} Tile;
+	tileType int represents type of tile, eg. EMPTY, SOIL, ROCK, WATER
+	some tiles can have extra data pointed to by the void ptr
+	
+
+there will also be an array of TileDescriptors
+	one for each tileType
+	eg:
+	typedef struct {
+		int tileType;
+		SDL_Texture *texture;		// the actual graphics of the tile, we could have arrays of these if we want animation
+		void (*destroy)(int x, int y, int z);	// a function to be called if the tile is 'destroyed'
+												// if this tile is say ROCK, and it is destroyed (eg. by being mined), it could 
+												// cause the creation of a Rock object which is pickupable 
+		... etc ...
+	} TileDescriptor;
+
+
+
