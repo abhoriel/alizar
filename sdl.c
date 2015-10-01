@@ -41,7 +41,7 @@ int sdlInit(int w, int h, bool fullscreen) {
 	
 	SDL_SetWindowGrab(window, SDL_TRUE);
 
-	//SDL_GetWindowSize(window, &width, &height);
+	SDL_GetWindowSize(window, &width, &height);
 
 	//width = w;
 	//height = h;
@@ -51,8 +51,8 @@ int sdlInit(int w, int h, bool fullscreen) {
 		logWrite(LOG_ERROR, "sdl renderer could not be created: %s\n", SDL_GetError());
 		return -1;
 	}
-	SDL_RenderGetLogicalSize(renderer, &width, &height);
-	logWrite(LOG_INFO, "sdl texture created (%dx%d)\n", width, height);
+	//SDL_RenderGetLogicalSize(renderer, &width, &height);
+	//logWrite(LOG_INFO, "sdl texture created (%dx%d)\n", width, height);
 	
 	SDL_SetWindowTitle(window, "alizarin");
 		
