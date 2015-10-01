@@ -22,10 +22,10 @@ int sdlInit(int w, int h, bool fullscreen) {
 	}
 	// if width and height are unspecified, try defaulting to 720p
 	if (w == 0) {
-		w = 1024;
+		w = 800;
 	}
 	if (h == 0) { 
-		h = 786;
+		h = 600;
 	}
 
 	if(SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -167,13 +167,13 @@ void sdlMain() {
 		if (mouseX == 0) {
 			worldX -= 8;
 		}
-		if (mouseX == width) {
+		if (mouseX == width - 1) {
 			worldX += 8;
 		}
 		if (mouseY == 0) {
 			worldY -= 8;
 		}
-		if (mouseY == width) {
+		if (mouseY == height - 1) {
 			worldY += 8;
 		}
 
