@@ -79,6 +79,8 @@ void sdlMain() {
 	int worldZ = 0;
 	int tileWidth = TILE_WIDTH;
 	int tileHeight = TILE_HEIGHT;
+
+	bool zoom = 0;
 	
 	extern int worldXSize;
 	extern int worldYSize;
@@ -126,6 +128,7 @@ void sdlMain() {
 							worldZ++;
 						}
 						logWrite(LOG_INFO, "worldZ: %d\n", worldZ);
+
 					}
 					break;
 				case SDL_KEYDOWN:
@@ -145,8 +148,26 @@ void sdlMain() {
 						case SDLK_LEFT:
 							worldX -= 8;
 							break;
+						case SDLK_PAGEUP:
+							if (tileWidth < (TILE_WIDTH * 8)) {
+								tileWidth++;
+							}
+							if (tileHeight < (TILE_HEIGHT * 8)) {
+								tileHeight++;
+							}
+							break;
+						case SDLK_PAGEDOWN:
+							if (tileWidth > 2) {
+								tileWidth--;
+							}
+							if (tileHeight > 2) {
+								tileHeight--;
+							}
+							break;
 					}
+
 			}
+
 			if (event.type == SDL_WINDOWEVENT) {
 				switch (event.window.event) {
 					case SDL_WINDOWEVENT_RESIZED:
