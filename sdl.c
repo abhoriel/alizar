@@ -80,8 +80,6 @@ void sdlMain() {
 	int tileWidth = TILE_WIDTH;
 	int tileHeight = TILE_HEIGHT;
 
-	bool zoom = 0;
-	
 	extern int worldXSize;
 	extern int worldYSize;
 	extern int worldZSize;

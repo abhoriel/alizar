@@ -2,16 +2,13 @@
 #define TILE_H
 
 #include <SDL2/SDL.h>
-#include "uthash.h"
 
 #define TILE_WIDTH 16 
 #define TILE_HEIGHT 16
 
-
 typedef struct TileDescriptor_ {
 	int tileType;
 	SDL_Texture *texture;
-	UT_hash_handle hh;
 } TileDescriptor;
 
 typedef struct Tile_ {

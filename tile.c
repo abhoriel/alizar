@@ -4,7 +4,6 @@
 #include <SDL2/SDL_image.h>
 #include "alizarin.h"
 #include "log.h"
-#include "uthash.h"
 #include "tile.h"
 
 // 16x16 tiles: 720p, 80x45
